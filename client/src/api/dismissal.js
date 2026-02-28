@@ -1,0 +1,21 @@
+import api from './client';
+
+export const getOrCreateSession = (schoolId) => api.post(`/schools/${schoolId}/sessions`);
+export const getSession = (id) => api.get(`/sessions/${id}`);
+export const updateSession = (id, data) => api.put(`/sessions/${id}`, data);
+export const getQueue = (sessionId, params) => api.get(`/sessions/${sessionId}/queue`, { params });
+export const checkIn = (sessionId, data) => api.post(`/sessions/${sessionId}/check-in`, data);
+export const callStudent = (sessionId, data) => api.post(`/sessions/${sessionId}/call`, data);
+export const callBatch = (sessionId, data) => api.post(`/sessions/${sessionId}/call-batch`, data);
+export const releaseStudent = (queueId) => api.post(`/queue/${queueId}/release`);
+export const dismissStudent = (queueId) => api.post(`/queue/${queueId}/dismiss`);
+export const dismissBatch = (data) => api.post('/queue/dismiss-batch', data);
+export const holdStudent = (queueId, data) => api.post(`/queue/${queueId}/hold`, data);
+export const delayStudent = (queueId) => api.post(`/queue/${queueId}/delay`);
+export const checkInByNumber = (sessionId, data) => api.post(`/sessions/${sessionId}/check-in-by-number`, data);
+export const checkInByBus = (sessionId, data) => api.post(`/sessions/${sessionId}/check-in-by-bus`, data);
+export const getStats = (sessionId) => api.get(`/sessions/${sessionId}/stats`);
+export const getActivity = (sessionId) => api.get(`/sessions/${sessionId}/activity`);
+export const releaseBatch = (data) => api.post('/queue/release-batch', data);
+export const releaseWalkers = (sessionId) => api.post(`/sessions/${sessionId}/release-walkers`);
+export const releaseWalkersByFilter = (sessionId, data) => api.post(`/sessions/${sessionId}/release-walkers-by-filter`, data);
